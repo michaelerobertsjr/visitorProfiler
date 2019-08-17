@@ -10,7 +10,7 @@ PROFILE=
 
 - Restart the server
 ```bash
-sudo forever restart
+sudo forever restartall
 ```
 
 ------
