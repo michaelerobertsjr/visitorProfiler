@@ -14,6 +14,7 @@ const attributeMappings ={
 	"tealium first party id" : 76
 }
 
+require('dotenv').load();
 
 async function n(k, v, res, type){
 	// get token that is required for requesting VP or deleting VP
@@ -28,9 +29,9 @@ async function n(k, v, res, type){
 		}
 		res.end(JSON.stringify({properties:{result: "no visitor profile found the Visitor ID: " + v}}));
 	}
-	
+
 	if(type == "deleteVP"){
-		var result = await deleteVP(token, k, v);			
+		var result = await deleteVP(token, k, v);
 		res.end(JSON.stringify({properties:result}));
 	}
 	//message sent if we are unable to retrieve token
@@ -38,7 +39,7 @@ async function n(k, v, res, type){
 	} catch(e){
 		res.end(JSON.stringify({properties:{Error : 'There was an issue processing your request, please try again later'}}))
 	}
-	
+
 }
 
 function filtArray(arr, filt){
@@ -46,11 +47,11 @@ function filtArray(arr, filt){
   filt.forEach((i) => {
              temp[i] = arr[i]
     })
-  return temp;  
+  return temp;
 }
 
 function getParts(r){
-	return [url.parse(r.url, true), 
+	return [url.parse(r.url, true),
 		url.parse(r.url,true).query,
 		attributeMappings[url.parse(r.url,true).query['attr'].toLowerCase()],
 		url.parse(r.url,true).query['value']

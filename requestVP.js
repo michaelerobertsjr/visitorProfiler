@@ -4,6 +4,7 @@ const fs = require('fs'),
       https = require('https'),
       qs = require('querystring');
 
+require('dotenv').load();
 
 const options  = {
       hostname: 'api.tealiumiq.com',

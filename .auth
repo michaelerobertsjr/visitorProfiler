@@ -1,4 +1,4 @@
 module.exports = {
-  username : "",
-  apikey  : ""
+  username : process.env.USERNAME,
+  apikey  : process.env.APIKEY
 }

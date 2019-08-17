@@ -1,7 +1,16 @@
+create a .env file and configure the following:
+
+```
+USERNAME=
+APIKEY=
+ACCOUNT=
+PROFILE=
+```
+
 
 - Restart the server
 ```bash
-sudo forever restartall
+sudo forever restart
 ```
 
 ------
